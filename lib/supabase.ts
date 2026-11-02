@@ -1,8 +1,16 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { Guest, Wish } from '@/types';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabaseUrl =
+  process.env.NEXT_PUBLIC_SUPABASE_URL ||
+  process.env.SUPABASE_URL ||
+  'https://kkkioxgkneeldoepffgh.supabase.co';
+
+const supabaseAnonKey =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+  process.env.SUPABASE_ANON_KEY ||
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtra2lveGdrbmVlbGRvZXBmZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM1OTc5NzgsImV4cCI6MjEwOTE3Mzk3OH0.YOgXgreUKRTz6a5VBjvRf2YqfkWxiXEA7KTVxfNjJms';
 
 // Safely create Supabase client if keys are present
 export const isSupabaseConfigured = Boolean(
