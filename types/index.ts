@@ -30,7 +30,7 @@ export interface AgendaItem {
   locationName: string;
   address: string;
   coordinates: string;
-  mapsUrl: string;
+  mapsUrl?: string;
   description: string;
   durationFormatted: string;
 }

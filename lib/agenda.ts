@@ -64,6 +64,7 @@ export const AGENDA_TRACKS: AgendaItem[] = [
     locationName: 'Pendopo Agung',
     address: 'Jl. Raya Kebumen - Purworejo, Jawa Tengah',
     coordinates: '-7.774023971504282, 109.6707848427757',
+    mapsUrl: 'https://www.google.com/maps?q=-7.774023971504282,109.6707848427757',
     description: 'Upacara penghormatan dan permohonan restu kedua mempelai kepada orang tua tercinta.',
     durationFormatted: '10:45 - 11:30',
   },
