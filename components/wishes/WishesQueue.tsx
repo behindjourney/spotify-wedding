@@ -47,7 +47,8 @@ export const WishesQueue: React.FC<WishesQueueProps> = ({ currentGuestName = '' 
 
     // Subscribe to Supabase real-time updates if configured
     if (isSupabaseConfigured && supabase) {
-      const channel = supabase
+      const client = supabase;
+      const channel = client
         .channel('realtime_wishes')
         .on(
           'postgres_changes',
@@ -61,7 +62,7 @@ export const WishesQueue: React.FC<WishesQueueProps> = ({ currentGuestName = '' 
 
       return () => {
         isMounted = false;
-        supabase.removeChannel(channel);
+        client.removeChannel(channel);
       };
     }
 

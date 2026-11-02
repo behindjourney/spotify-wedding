@@ -71,8 +71,9 @@ export async function getGuestBySlug(slug: string): Promise<Guest> {
     };
   }
 
+  const client = supabase;
   try {
-    const { data, error } = await supabase
+    const { data, error } = await client
       .from('guests')
       .select('*')
       .eq('slug', slug)
@@ -117,8 +118,9 @@ export async function fetchWishes(): Promise<Wish[]> {
     return initialMockWishes;
   }
 
+  const client = supabase;
   try {
-    const { data, error } = await supabase
+    const { data, error } = await client
       .from('wishes')
       .select('*')
       .order('created_at', { ascending: false });
@@ -149,8 +151,9 @@ export async function submitWish(newWish: Omit<Wish, 'id' | 'created_at'>): Prom
   };
 
   if (isSupabaseConfigured && supabase) {
+    const client = supabase;
     try {
-      const { data, error } = await supabase
+      const { data, error } = await client
         .from('wishes')
         .insert([
           {

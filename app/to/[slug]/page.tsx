@@ -9,7 +9,8 @@ interface PageProps {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const guest = await getGuestBySlug(params.slug);
+  const resolvedParams = await Promise.resolve(params);
+  const guest = await getGuestBySlug(resolvedParams.slug);
 
   return {
     title: `Undangan Spesial untuk ${guest.name} | Alif & Widi Wedding`,
@@ -30,7 +31,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function GuestInvitationPage({ params }: PageProps) {
-  const guest = await getGuestBySlug(params.slug);
+  const resolvedParams = await Promise.resolve(params);
+  const guest = await getGuestBySlug(resolvedParams.slug);
 
   return (
     <WeddingApp
